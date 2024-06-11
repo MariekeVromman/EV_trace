@@ -1,0 +1,35 @@
+Hi Marieke,
+ 
+Thanks for the feedback for SLAM-DUNK. First quickly to your questions:
+ 
+1. Since its for quantifying reads only, I think what you are doing should be fine
+2. Indeed the 12bp trimming was recommended by the Kit producer, so you should adapt this to your needs
+3. I would advise to drop the multimap option. We only saw a real difference for short reads (50bp) in 3’ends (which are of lower sequence complexity), so for your needs that should not be required
+4. I suspect this is indeed to strandedness – you could try revcomping your R2 reads before running SLAM-DUNK and see if that improves things
+5. Why are you exactly trying to quantify this % or fraction of labelled transcripts? For half-life estimations? If yes, there the conversion rate should be equally fine, but if you really want to put a number on it then I would suggest you to use GRAND-SLAM (https://github.com/erhard-lab/gedi/wiki/GRAND-SLAM) or derivatives (https://grandr.erhard-lab.de/) for that.
+ 
+Regarding full-transcript SLAM-seq analysis, alternatively you could also turn to Niko Popitsch from the Ameres lab, who has developed some workflows that cover this whole analysis branch.
+ 
+Best,
+ 
+Tobi
+ 
+------------------
+
+Good afternoon Tobias,
+ 
+I'm a postoc at Institut Curie, and our lab is doing SLAMseq experiments for the first time based on your papers (https://doi.org/10.1038/nmeth.4435, https://doi.org/10.1186/s12859-019-2849-7). This week I started analying the data using SLAM-DUNK. It was very easy to install and use, thank you for that!  
+ 
+Our dataset is a bit different from the 3' end QuantSeq data used in the papers. I have a couple of questions related to what parameters we should adapt in the SLAM-DUNK pipeline to make it work for our dataset. 
+The samples were preped with the Illumina Stranded mRNA Prep (polyA enrichement through oligoT primers, followed by fragmentation and random priming), and paired-end sequencing was performed.
+
+1. for the --bed parameter, I used a list of all GenCode human transcripts, in stead of 3' UTRs. This means that the fragments are way longer (entire transcripts) compared to the original 3' UTRs bed file. Does this still make sense? Would you suggest using a bed file with a different reference?
+2. for the --trim-5p parameter, I used 0 instead of 12, as I assume the trimming of 12 bp at the 5' end is specific for 3' end sequencing libraries. Is this correct? Why exactly is there a need to trim the 12 bp?
+3. I decided to keep the --multimap parameter, but I'm not sure if this is necessary for a polyA library, as there the libraries are more complex than 3' UTR libraries. What would you advise?
+4. I started by running the pipeline separatly for R1 and R2, as there is no build-in option to run the pipeline on paired end data (I know some people have found solution for that, and I'm looking into this next week). However, we observed a big difference between both reads (see plot attached to this mail). Could you speculate why this is? Is it an issue with strandedness? Do you have a suggestion to solve this?
+5. In addition to the convertion rate, we're also interested in the percentage of transcripts that were labeled. I calculated this simply by dividing the number of transcripts with a convertion rate > 0 by the total number of samples. I was surprised to see a high number of transcripts with at least one conversion in the 2 untreated samples. Of course this is way lower once the the conversation rate > 0.01, which is reasuring. Is it expected to see these number of labeled transcripts in an untreated sample?
+
+I know this is a lot of questions at the same time, and I would be gratefull for any answer you could provide.
+ 
+Thank you,
+Marieke
