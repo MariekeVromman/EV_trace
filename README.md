@@ -1,7 +1,9 @@
 # EV_trace
 This repo consist of all the scripts performed for the EV project in collaboration with Panagiotis Papoutsoglou.
 
-For this project, the [SLAMseq protocol](https://www.lexogen.com/wp-content/uploads/2017/11/059UG142V0102_SLAMseq_User-Guide.pdf) was used to label RNA. This protocol induces a T>C conversion in the RNA strands, which can be used as a label. Regular RNA sequencing is performed and the tagged RNA strands can be identified as 'mutations' using [SlamDunk](https://t-neumann.github.io/slamdunk/), a NextFlow pipeline. See also the presentation in Teams `Marieke/20240404_student_meeting.pptx` for more information about the technique itself. 
+For this project, the [SLAMseq protocol](https://www.lexogen.com/wp-content/uploads/2017/11/059UG142V0102_SLAMseq_User-Guide.pdf) was used to label RNA. This protocol induces a T>C conversion in the RNA strands, which can be used as a label. Regular RNA sequencing is performed and the tagged RNA strands can be identified as 'mutations' using [SlamDunk](https://t-neumann.github.io/slamdunk/), a NextFlow pipeline. See also the presentation in Teams `Marieke/20240404_student_meeting.pptx` for more information about the technique itself.
+
+I had a couple of question on the pipeline, and the developers replied very fast (see mail_SlamDunk.txt), so do not hesitate to contact them.
 
 The samples analysed come from one sequencing run of labeled total cell line RNA (KDI project: EVRNATRACE, sequencing run: D1515). There are 6 samples in total: 2 replicates x 3 different concentrations:
 - D1515T43	250_uM_S4U_1
