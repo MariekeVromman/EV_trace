@@ -14,7 +14,7 @@ The samples analysed come from one sequencing run of labeled total cell line RNA
 > [!WARNING]  
 > The currenct SlamDunk pipeline only detects T>C conversions in SE data. For PE data, the pipeline was run twice: once for R1 and once for R2. For R1, first, the reverse compelent should be taken of the reads (indicated as R1_rc in this repository). This can be done with [SeqKit](https://github.com/shenwei356/seqkit) (example script: ...).
 
-This repository contains 5 folders
+This repository contains 4 folders
 1. **data**  
 This folders contains the output data from mapping the fastq files with STAR and generating counts with FeatureCounts, and the output data from running the SlamDunk pipeline. As this is a big folder, it is not included in the github repo itself, but it is present on the hard disk. 
 
